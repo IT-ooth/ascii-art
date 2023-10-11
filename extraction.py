@@ -23,7 +23,15 @@ class img_map:
 
         return pixel_value
 
+    def printDataList(self):  # 잘 작동하는지 확인
+        t = self.getDataList()
+        for y in range(len(t)):
+            for x in range(len(t[0])):
+                print("%3d" % t[y][x], end=" ")
+            print()
+
 
 # test
-# a = img_map("img\ROKMC_dog.jpg")
+# a = img_map("img\\testImg.png")
+# a.printDataList()
 # a.show()
