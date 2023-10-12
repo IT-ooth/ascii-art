@@ -1,10 +1,12 @@
 # module
 import cv2
+from PIL import Image
 
 
 class img_map:
     def __init__(self, img):
         self.grayscaleImg = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
+        self.img = Image.open(img).convert("L")
 
     def show(self):
         cv2.imshow("ROKMC_DOG", self.grayscaleImg)
@@ -22,6 +24,10 @@ class img_map:
             pixel_value.append(t)
 
         return pixel_value
+
+    def getData(self):
+        data = self.img.getdata()
+        return data
 
     def printDataList(self):  # 잘 작동하는지 확인
         t = self.getDataList()
