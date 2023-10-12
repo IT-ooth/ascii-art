@@ -1,5 +1,8 @@
 # git 커밋할 때 제외할 파일과 폴더 정의
 
+### PYTHON ###
+__pycache__/*
+
 ### VSCODE ###
 .vscode/*
 
