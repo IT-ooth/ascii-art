@@ -37,7 +37,8 @@ class img_map:
             print()
 
 
-# test
-# a = img_map("img\\testImg.png")
-# a.printDataList()
-# a.show()
+# test code
+if __name__ == "__main__":
+    a = img_map("img\\testImg.png")
+    a.printDataList()
+    a.show()
