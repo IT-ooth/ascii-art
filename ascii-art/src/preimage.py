@@ -19,7 +19,7 @@ class PreImage:
         w, h = self.img.size
         return w * h
 
-    def setImage(path):  # 경로에 있는 이미지를 객체로 반환
+    def setImage(self, path):  # 경로에 있는 이미지를 객체로 반환
         return Image.open(path)
 
     def getGrayscale(self):  # 이미지를 grayScale로 만듦
