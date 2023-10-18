@@ -1,46 +1,35 @@
-#사진 데이터 전처리
-#
-#인데 아직 안 만들어져서 대충 옛날꺼 씀
-# module
-import cv2
+# 사진 전처리 데이터
+from PIL import Image
 
 
-class img_map:
-    def __init__(self, img):
+class PreImage:
+    def __init__(self, path: str):
+        self.__img = self.setImage(path)
 
-        self.grayscaleImg = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
+    @property
+    def img(self):  # img 불러오기
+        return self.__img
 
-    def show(self):
-        cv2.imshow("", self.grayscaleImg)
-        cv2.waitKey()
-        cv2.destroyAllWindows()
+    @property
+    def size(self) -> tuple:  # 주어진 이미지의 사이즈
+        return self.img.size
 
-    def getDataList(self):
-        pixel_value = []
-        (height, width) = self.grayscaleImg.shape
+    @property
+    def area(self) -> int:  # 주어진 이미지의 넓이
+        w, h = self.img.size
+        return w * h
 
-        for y in range(height):  # 모든 픽셀에 대한 grayScale을 가져옴
-            t = []
-            for x in range(width):
-                t.append(self.grayscaleImg[y, x])
-            pixel_value.append(t)
+    def setImage(path):  # 경로에 있는 이미지를 객체로 반환
+        return Image.open(path)
 
-        return pixel_value
+    def getGrayscale(self):  # 이미지를 grayScale로 만듦
+        return self.img.convert("L")
 
-    def printDataList(self):  # 잘 작동하는지 확인
-        t = self.getDataList()
-        for y in range(len(t)):
-            for x in range(len(t[0])):
-                print("%3d" % t[y][x], end=" ")
-            print()
-
-# test
-#a = img_map("img/ROKMC_dog.jpg")
+    def getPixel(self):  # 이미지의 grayScale 데이터 받아오기
+        return self.getGrayscale().getdata()
 
 
-'''print(a.getDataList())
-f = open("result.txt", "w")
-f.write(str(a.getDataList()))
-f.close()
-
-a.show()'''
+# test code
+if __name__ == "__main__":
+    a = PreImage("img\\ROKMC_dog.jpg")
+    print(a.getPixel())
