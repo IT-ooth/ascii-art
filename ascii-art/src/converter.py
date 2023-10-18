@@ -5,5 +5,5 @@ class ConvertingImage:
     def __init__(self, pixels):
         self.pixels = pixels
 
-    def match(pixel):
+    def match(self, pixel):
         pass
