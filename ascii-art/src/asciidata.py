@@ -1,4 +1,4 @@
-# ascii-dataset 를 가져오기
+# ascii-dataset 가져오기
 import yaml
 
 def get_asciiDataset() -> dict:
@@ -10,4 +10,3 @@ if __name__ == "__main__":
     a = get_asciiDataset()
     for i, data in a.items():
         print(i, data)
-    
