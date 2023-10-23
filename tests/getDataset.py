@@ -22,6 +22,6 @@ def getDataset() -> list:
 
 if __name__ == "__main__":
     a = getDataset()
-    print(a)
-    for i, k in enumerate(a):
-        print(str(i) + " : "+ str(k) + ",")
+    print(max(a))
+    # for i, k in enumerate(a):
+    #     print(str(i) + " : "+ str(k) + ",")
