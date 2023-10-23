@@ -7,5 +7,7 @@ def get_asciiDataset() -> dict:
         return file
 
 if __name__ == "__main__":
-    print(get_asciiDataset())
+    a = get_asciiDataset()
+    for i, data in a.items():
+        print(i, data)
     
