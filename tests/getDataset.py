@@ -22,6 +22,6 @@ def getDataset() -> list:
 
 if __name__ == "__main__":
     a = getDataset()
-    for i in a:
-        if a.count(i) > 1:
-            print(a.count(i))   
+    print(a)
+    for i, k in enumerate(a):
+        print(i,":", k)
