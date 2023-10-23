@@ -1,4 +1,4 @@
-import preimage
+import preImage
 
 
 class ConvertingImage:
