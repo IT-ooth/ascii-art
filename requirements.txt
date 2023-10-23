@@ -1,2 +1,0 @@
-# requirements.txt 생성 커맨드
-# pip freeze > requirements.txt 

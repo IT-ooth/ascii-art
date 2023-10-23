@@ -2,7 +2,7 @@ from functools import singledispatch
 from abc import ABCMeta, abstractmethod
 
 class UI(metaclass = ABCMeta):
-    url = "ascii-art/ascii-art/resources"
+    url = "ascii-art/resources"
 
     @abstractmethod
     def getUrl(self) -> str:
