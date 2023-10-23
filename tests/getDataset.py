@@ -16,7 +16,7 @@ def getDataset() -> list:
             if item >= cutOff: # 204 = 흰색 12 = 검정
                 white_point += 1
         
-        dataset[i] = round(white_point / img_size, 3)
+        dataset[i] = round(white_point / img_size / 0.357, 3)
     
     return dataset
 
@@ -24,4 +24,4 @@ if __name__ == "__main__":
     a = getDataset()
     print(a)
     for i, k in enumerate(a):
-        print(i,":", k)
+        print(str(i) + " : "+ str(k) + ",")
