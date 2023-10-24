@@ -2,6 +2,8 @@
 
 ### PYTHON ###
 __pycache__/*
+ascii-art/src/__pycache__/*
 
 ### VSCODE ###
 .vscode/*
+
