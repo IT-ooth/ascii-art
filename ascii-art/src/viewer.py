@@ -14,18 +14,6 @@ class TUI(UI):
     def getUrl(self) -> str:
         return super().getUrl()
 
-# 임시 컨버터 클래스, 컨버터 완성 시 삭제
-class Convertor():
-
-    ls = [
-        ["1", "2"],
-        ["2", "3"]
-    ]
-
-    @classmethod
-    def getPixels(cls):
-        return cls.ls
-    
 class Viewer():
 
     def __init__(self) -> None:
