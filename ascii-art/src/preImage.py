@@ -32,5 +32,4 @@ class PreImage:
 # test code
 if __name__ == "__main__":
     a = PreImage("tests\\resources\\ROKMC.jpg", 0.5)
-    print(type(a.getPixel()))
     a.img.show()
