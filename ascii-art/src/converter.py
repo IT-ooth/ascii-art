@@ -45,7 +45,7 @@ class Convert:
     def getAsciis(self, img_path: str, img_size: int = 1) -> list:
         converting_image = PreImage(img_path, img_size)
         image_pixels = converting_image.getPixel()
-        x, y = converting_image.img.size
+        x, y = converting_image.size
 
         one_dim = self.matchByList(image_pixels)
         two_dim = []
