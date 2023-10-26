@@ -9,7 +9,10 @@ class PreImage:
     @property
     def img(self):
         return self.__img
-
+    
+    @property
+    def size(self):
+        return self.img.size
     # 이미지 세팅 ( 그레이스케일 값 )
     def setImage(self, path: str, size_ratio: float) -> Image.Image:
         img = Image.open(path)
