@@ -2,7 +2,7 @@
 import yaml
 
 def get_asciiDataset() -> dict:
-    with open("ascii-art/resources/ascii-dataset.yml", 'r' , encoding='UTF8') as f:
+    with open("ascii-art\\resources\\ascii-dataset.yml", 'r' , encoding='UTF8') as f:
         file = yaml.full_load(f)
         return file
 
