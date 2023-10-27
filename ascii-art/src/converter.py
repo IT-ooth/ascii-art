@@ -1,5 +1,5 @@
-from preImage import PreImage
-from asciidata import get_asciiDataset
+from src.preImage import PreImage
+from src.asciidata import get_asciiDataset
 
 class Convert:
     
