@@ -60,7 +60,7 @@ class Convert:
 if __name__ == "__main__":
     # 테스트용 함수들
     def writeResult(result):
-        with open("result.txt", 'w', encoding='ASCII') as f:
+        with open("tests/test_result.txt", 'w', encoding='ASCII') as f:
             for i in result:
                 for j in i:
                     # 정석적인 출력 방식. 대신 텍스트 파일로 보면 줄이 밀려있음
@@ -70,5 +70,5 @@ if __name__ == "__main__":
                     #f.write(j+j+j+'\t')
                 f.write("\n")
     a = Convert()
-    writeResult(a.getAsciis("tests/resources/pepe.jpg",0.2))
+    writeResult(a.getAsciis("tests/resources/ROKMC.jpg",1))
     #writeResult(a.getPixels("../../tests/resources/ROKMC.jpg"))
