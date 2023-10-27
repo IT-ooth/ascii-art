@@ -1,9 +1,9 @@
 from src.converter import Convert
+from tkinter import messagebox
 import src.viewer
 import tkinter
 
-
-
+# mainwindow
 class Main(tkinter.Tk):
 
     def __init__(self) -> None:
@@ -14,6 +14,7 @@ class Main(tkinter.Tk):
 
         return None
     
+    # UI 구성
     def setUI(self) -> None:
 
         urlEntry = tkinter.Entry(self, width = 80)
@@ -24,12 +25,15 @@ class Main(tkinter.Tk):
     
         return None
 
+    # ascii-art 출력
     def show(self, url:str) -> None:
         
         convertor = Convert()
         try: src.viewer.Viewer(convertor.getAsciis(url))
-        except FileNotFoundError: pass
+        except FileNotFoundError: 
+            messagebox.showerror("오류", "파일 경로 오류")
         
+        return None
 
-
-a = Main()
+if __name__ == "__main__":
+    Main()
