@@ -1,50 +1,55 @@
-from src.converter import Convert
-from tkinter import messagebox, filedialog
-from src.viewer import Viewer
+from tkinter.font import Font
+from tkinter import filedialog
 import tkinter
 
-# mainwindow
-class Main(tkinter.Tk):
+# sub window
+class Viewer(tkinter.Toplevel):
 
-    def __init__(self) -> None:
+    def __init__(self, asciis: list) -> None:
         super().__init__()
 
-        self.setUI()
-        self.mainloop()
+        self.setUI(asciis)
+
+        self.focus()
+        self.grab_set()
 
         return None
-    
-    # UI 구성
-    def setUI(self) -> None:
 
-        urlEntry = tkinter.Entry(self, width = 80)
-        urlEntry.grid(row = 0, column = 0)
+    # UI 구성    
+    def setUI(self, asciis: list) -> None:
+        menubar = tkinter.Menu(self)
+        self.config(menu = menubar)
 
-        def getpath(event:tkinter.Event) -> None:
+        font = Font(family="MS Gothic", size = 2)
+        label = tkinter.Label(self, text = self.listTotext(asciis), font = font)
+        label.pack()
+        fileMenu = tkinter.Menu(menubar)
+        fileMenu.add_command(label = "Save", command = lambda:self.save(asciis))
+        menubar.add_cascade(label = "File", menu = fileMenu)
 
-            filename = filedialog.askopenfilename(
-                filetypes = [
-                    ("All Files", "*.*")
+    # txt 파일로 저장
+
+    def save(self, asciis: list) -> None:
+        
+        filename = filedialog.asksaveasfilename(
+            initialfile = "result.txt",
+            defaultextension = ".txt",
+            filetypes = [
+                ("All Files", "*.*"),
+                ("Text Document", "*.txt")
                 ]
             )
-            urlEntry.insert(0, filename)
-
-        urlEntry.bind("<Button-1>", getpath)
-
-        calBtn = tkinter.Button(self, text = "변환", command = lambda:self.show(urlEntry.get()))
-        calBtn.grid(row = 0, column = 1)
+        
+        with open(filename, 'w', encoding = "utf-8") as txt_file:
+            txt_file.write(self.listTotext(asciis))
 
         return None
-        
-    # ascii-art 출력
-    def show(self, url:str) -> None:
-        
-        convertor = Convert()
-        try: Viewer(convertor.getAsciis(url))
-        except FileNotFoundError: 
-            messagebox.showerror("오류", "파일 경로 오류")
-        
-        return None
 
-if __name__ == "__main__":
-    Main()
+    # list[][] -> str로 변경
+    def listTotext(self, asciis: list):
+        string = str()
+
+        for line in asciis:
+            string += "".join(line) + "\n"
+        
+        return string
