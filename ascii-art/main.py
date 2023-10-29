@@ -1,5 +1,6 @@
 from src.converter import Convert
 from src.viewer import Viewer
+from src.preImage import PreImage
 from tkinter import messagebox, filedialog
 import tkinter
 
@@ -39,8 +40,9 @@ class Main(tkinter.Tk):
     # ascii-art 출력
     def show(self, url:str) -> None:
         
-        convertor = Convert()
-        try: Viewer(convertor.getAsciis(url))
+        img = PreImage(url, 1)
+        
+        try: Viewer(Convert.getAsciis(img.getPixel(), img.size))
         except FileNotFoundError: 
             messagebox.showerror("오류", "파일 경로 오류")
         
