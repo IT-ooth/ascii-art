@@ -36,7 +36,7 @@ class Convert:
         
         # pixel(1차) -> ascii(1차)
         for item in pixels:
-            one_dim.append(chr(self.match(cls.dataset, item)))
+            one_dim.append(chr(match(cls.dataset, item)))
 
         # ascii(1차) -> ascii(2차)
         for i in range(y):
