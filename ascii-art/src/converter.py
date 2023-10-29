@@ -51,20 +51,3 @@ class Convert:
         return two_dim
        
 
-# if __name__ == "__main__":
-#     # 테스트용 함수들
-#     def writeResult(result):
-#         with open("result.txt", 'w', encoding='ASCII') as f:
-#             for i in result:
-#                 for j in i:
-#                     # 정석적인 출력 방식. 대신 텍스트 파일로 보면 줄이 밀려있음
-#                     f.write(str(j)+' ')
-
-#                     # 결과를 예쁘게 보고 싶을 때
-#                     # f.write(j+j+j+'\t')
-#                 f.write("\n")
-
-#     a = PreImage("tests\\resources\\ROKMC.jpg")
-#     b = Convert()
-
-#     writeResult(b.getAsciis(a.getPixel(), a.size))
