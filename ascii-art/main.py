@@ -39,8 +39,8 @@ class Main(tkinter.Tk):
     # ascii-art 출력
     def show(self, url:str) -> None:
         
-        convertor = Convert()
-        try: Viewer(convertor.getAsciis(url))
+        #convertor = Convert()
+        try: Viewer(Convert.getAsciis(url))
         except FileNotFoundError: 
             messagebox.showerror("오류", "파일 경로 오류")
         
