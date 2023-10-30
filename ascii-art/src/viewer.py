@@ -1,32 +1,39 @@
-from functools import singledispatch
-from abc import ABCMeta, abstractmethod
+from tkinter import *
+from tkinter import ttk
 
-# UI 추상클래스
-class UI(metaclass = ABCMeta):
-    url = "ascii-art/resources"
-
-    @abstractmethod
-    def getUrl(self) -> str:
-        return self.url
+class mainWindow():
     
-class TUI(UI):
+    root = Tk()
 
-    def getUrl(self) -> str:
-        return super().getUrl()
+    def __init__(self):
+        self.setupUI()
+        
+        self.root.mainloop()
+
+    def setupUI(self):
+        self.root.title = "mainWindow"
+        self.root.geometry("300x100+2000+600")
+
+        frame = Frame(self.root, bg="red")
+        frame.pack(fill=BOTH, expand=True)
+
+        txt = Entry(frame, width=50)
+        txt.pack(side="left", fill=X)
+
+        btn = Button(frame, overrelief="solid", text="convert")
+        btn.pack(side="right", fill=X, padx=10)
+
+        
+
+
+
+class subWindow():
+    pass
+
 
 class Viewer():
-
     def __init__(self) -> None:
-        
-        self.show = singledispatch(self.show)
-        self.show.register(TUI, self.__showTUI)
-    
-    # show를 메서드 오버로딩해서 구성
-    
-    def show(self, arg: UI):pass
+        pass
 
-    def __showTUI(self, arg: TUI):
-
-        with open(arg.getUrl() + "result.txt", "w") as file:
-            for line in Convertor.getPixels():
-                file.write("".join(line) + "\n")
+if __name__ == "__main__":
+    a = mainWindow()
