@@ -18,7 +18,7 @@ def getDataset() -> list:
         cutOff = 200    # white_pixel 값 = 204
         
         for item in datas:
-            if item >= cutOff: # 204 = 흰색 12 = 검정
+            if item <= cutOff: # 204 = 흰색 12 = 검정
                 white_point += 1
         
         dataset[i] = float(white_point / img_size)
